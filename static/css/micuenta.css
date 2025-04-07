@@ -63,7 +63,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    background-image: url(../img_wiki/Fondo3.jpg);
+    background-image: url(../../static/img/img_wiki/Fondo3.jpg);
     margin-bottom: 1.25rem;
 }
 
@@ -222,6 +222,4 @@ body {
         align-items: center;
         justify-content: center
     }
-
-
 }

@@ -64,7 +64,6 @@ body {
   outline: none;
 }
 
-/* Imagen de fondo con texto centrado */
 .img-1 {
   background-image: url(https://source.unsplash.com/random/1600x900?forest);
   background-size: cover;
@@ -98,8 +97,20 @@ footer {
   padding-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
+
+footer p {
+  color: white !important;
+}
+
+footer span {
+  color: #ffc400; 
+}
+
 
 #fuente {
   color: var(--rojo);
@@ -130,42 +141,41 @@ nav {
     object-fit: cover;
   }
 
-  .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--light);
-    text-align: center;
-  }
-  
-  .carousel-item {
-    height: 100vh;
-  }
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--light);
+  text-align: center;
+}
+
+.carousel-item {
+  height: 100vh;
+}
 
 .carousel-caption h5, .carousel-caption p {
-    color: white;
-  }
+  color: white;
+}
 
-  .bg-dark {
-    background-color: #16191C !important; 
-    color: white; 
-  }
-  
-  .bg-dark input, .bg-dark label, .bg-dark a {
-    color: white; 
-  }
+.bg-dark {
+  background-color: #16191C !important; 
+  color: white; 
+}
 
-  .text-white {
-    color: white !important;
-  }
-  
-  .button {
-    background-color: #2b97fd;
-    color: white; 
-  }
-  
-  .button:hover {
-    background-color: #1e78d6;
-  }
-  
+.bg-dark input, .bg-dark label, .bg-dark a {
+  color: white; 
+}
+
+.text-white {
+  color: white !important;
+}
+
+.button {
+  background-color: #2b97fd;
+  color: white; 
+}
+
+.button:hover {
+  background-color: #1e78d6;
+}
