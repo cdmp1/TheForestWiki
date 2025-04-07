@@ -15,7 +15,6 @@
 #colorcuerpo{
     color: var(--dark);
 }
-/*footer*/
 footer {
     background-color: rgba(36, 36, 36, 0.664);
     color: white;
@@ -52,10 +51,6 @@ body {
     font-family: 'Bebas Neue', cursive;
 }
 
-/*=====================================
-estilos de la utilidad
-Copiar esto
-=====================================*/
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
     display: flex;
@@ -79,12 +74,6 @@ Copiar esto
     height: 17rem;
     
     border-radius: 0 0 20px 20px;
-    /*
-    background-image: url('http://localhost/multimedia/png/user-portada-3.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    */
 }
 
 .seccion-perfil-usuario .perfil-usuario-portada .boton-portada {
@@ -212,9 +201,6 @@ Copiar esto
     font-size: 1.3rem;
 }
 
-
-
-/* adactacion a dispositivos */
 @media (max-width: 750px) {
     .seccion-perfil-usuario .lista-datos {
         width: 100%;

@@ -115,32 +115,12 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-
-
-/* -- fin ajustes 1 -- */
-
-
-
-/*--header*/
 .contenedor {
 	width: 90%;
 	margin: auto;
 }
 
-
-
-
-
-
-/* -- fin header -- */
-
-
-
 * {box-sizing:border-box}
-
-/* Slideshow container */
-
-
 
 .container-slider{
    width: 90%;
@@ -196,12 +176,6 @@ body {
    left: 10px;
 }
 
-
-/* ---- ----- ----- Pie de pagina ----- ----- ----- */
-
-
-
-
  footer {
    background-color: rgba(36, 36, 36, 0.664);
    color: white;
@@ -212,9 +186,6 @@ body {
    text-align: center;
    margin-top: 20px;
 }
-
-
-/* --- Letras y Nav --- */
 
 header {
 	font-family: 'Bebas Neue', cursive;
