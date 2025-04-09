@@ -33,9 +33,6 @@ def logros_view(request):
 def lugares_view(request):
     return render(request, 'Lugarestf.html')
 
-def menu_principal_view(request):
-    return render(request, 'Menu_principal_wiki.html')
-
 def micuenta_view(request):
     return render(request, 'Micuentatf.html')
 
@@ -44,3 +41,102 @@ def recuperarcontra_view(request):
 
 def registrarse_view(request):
     return render(request, 'Registrarse_wiki.html')
+
+
+from django.shortcuts import render
+
+def menu_principal_view(request):
+    image_paths_animales = [
+        'img/imagenes/Animales/1.png',
+        'img/imagenes/Animales/2.png',
+        'img/imagenes/Animales/3.png',
+        'img/imagenes/Animales/4.png',
+        'img/imagenes/Animales/5.png',
+        'img/imagenes/Animales/6.png',
+        'img/imagenes/Animales/7.png',
+        'img/imagenes/Animales/8.png',
+        'img/imagenes/Animales/9.png',
+        'img/imagenes/Animales/10.png',
+        'img/imagenes/Animales/11.png',
+        'img/imagenes/Animales/12.png',
+        'img/imagenes/Animales/13.png',
+    ]
+
+    image_paths_lugares = [
+        'img/imagenes/Historia/h1.jpg',
+        'img/imagenes/Historia/h2.jpg',
+        'img/imagenes/Historia/h4.jpg',
+
+    ]
+    image_paths_enemigos = [
+        'img/imagenes/Enemigos/Armsy.webp',
+        'img/imagenes/Enemigos/BabyMutant.webp',
+        'img/imagenes/Enemigos/Cowman.webp',
+        'img/imagenes/Enemigos/DynamiteCannibal.webp',
+        'img/imagenes/Enemigos/Girl.webp',
+        'img/imagenes/Enemigos/Worm.webp',
+
+    ]
+    image_paths_construccion = [
+        'img/imagenes/Construcciones/AlpineTreeHouse.webp',
+        'img/imagenes/Construcciones/AnimalTrap.webp',
+        'img/imagenes/Construcciones/BasicFire.webp',
+        'img/imagenes/Construcciones/FirePit.webp',
+        'img/imagenes/Construcciones/Gazebo.webp',
+        'img/imagenes/Construcciones/RabbitCage.webp',
+
+    ]
+    image_paths_flora = [
+        'img/imagenes/Flora/f1.png',
+        'img/imagenes/Flora/f2.png',
+        'img/imagenes/Flora/f3.png',
+        'img/imagenes/Flora/f4.png',
+        'img/imagenes/Flora/f5.png',
+        'img/imagenes/Flora/f6.png',
+        'img/imagenes/Flora/f7.png',
+        'img/imagenes/Flora/f8.png',
+        'img/imagenes/Flora/f9.png',
+
+    ]
+    image_paths_armas= [
+        'img/imagenes/Armas/Arm.webp',
+        'img/imagenes/Armas/Arrow.webp',
+        'img/imagenes/Armas/Bomb.webp',
+        'img/imagenes/Armas/Bone.webp',
+        'img/imagenes/Armas/Club.webp',
+        'img/imagenes/Armas/Chainsaw.webp',
+        'img/imagenes/Armas/Crossbow.webp',
+        'img/imagenes/Armas/Dynamite.webp',
+        'img/imagenes/Armas/FireArrow.webp',
+
+    ]
+    image_paths_consumibles= [
+        'img/imagenes/Consumibles/Aloe.webp',
+        'img/imagenes/Consumibles/BlackBerries.webp',
+        'img/imagenes/Consumibles/Bloodied.webp',
+        'img/imagenes/Consumibles/Booze.webp',
+        'img/imagenes/Consumibles/FishEdible.webp',
+        'img/imagenes/Consumibles/IconMeatBurnt.webp',
+        'img/imagenes/Consumibles/Meat.webp',
+        'img/imagenes/Consumibles/RabbitMeat.webp',
+
+    ]
+
+    image_paths_historia= [
+        'img/imagenes/Fondos/Fondo4.jpg',
+        'img/imagenes/Fondos/Fondo5.jpg',
+
+    ]
+
+
+    context = {
+        'image_paths_animales': image_paths_animales,
+        'image_paths_lugares': image_paths_lugares,
+        'image_paths_enemigos': image_paths_enemigos,
+        'image_paths_construccion': image_paths_construccion,
+        'image_paths_flora': image_paths_flora,
+        'image_paths_armas': image_paths_armas,
+        'image_paths_consumibles': image_paths_consumibles,
+        'image_paths_historia': image_paths_historia,
+    }
+    return render(request, 'Menu_principal_wiki.html', context)

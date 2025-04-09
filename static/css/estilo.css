@@ -235,3 +235,12 @@ footer {
     flex-direction: column;
     text-align: center;
 }
+
+.mySlides {
+    display: none; 
+}
+
+.mySlides.visible {
+    display: block; 
+}
+
