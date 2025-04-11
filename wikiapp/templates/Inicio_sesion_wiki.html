@@ -69,37 +69,40 @@
                     </div>
                   </div>
             </div>
-
+            
             <div class="d-flex justify-content-center align-items-center min-vh-100">
               <div class="w-20">
                   <h2 class="text-center font-weight-bold mb-4" id="subir">Ingrese sus Datos</h2>
-                <form class="mb-5">
-
-                <!-- Campo: Usuario  -->
-                <div class="mb-3">
-                  <label for="name" class="form-label">Nombre de Usuario:</label>
-                  <input type="text" id="nombre_usuario_is" name="nombres" class="form-control" required>
-              
-
-                      <!-- Campo: Contraseña -->
-
-                    <div class="mb-4">
-                      <label for="Examplepassword" class="form-label font-weight-bold">Contraseña</label>
-                      <input type="text" class="form-control bg-dark-x border-0" id="contraseña_is="Ingrese su contraseña" aria-describedby="emailHelp" style="background-color: #ffffff;">
-
-
-                    </div>
-                      <a href="menuprincipal_wiki.html" class="button">Iniciar Sesión</a>
+                  <form method="post" class="mb-5" action="{% url 'iniciar_sesion_wiki' %}">
+                      {% csrf_token %}
+  
+                      <div class="mb-3">
+                          <label for="{{ form.username.id_for_label }}" class="form-label">Nombre de Usuario:</label>
+                          {{ form.username }}
+                          {% if form.username.errors %}
+                              <div class="alert alert-danger">{{ form.username.errors }}</div>
+                          {% endif %}
+                      </div>
+  
+                      <div class="mb-4">
+                          <label for="{{ form.password.id_for_label }}" class="form-label font-weight-bold">Contraseña</label>
+                          {{ form.password }}
+                          {% if form.password.errors %}
+                              <div class="alert alert-danger">{{ form.password.errors }}</div>
+                          {% endif %}
+                      </div>
+  
+                      <button type="submit" class="button">Iniciar Sesión</button>
                   </form>
-                </div>
-
-                
-                <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 mt-auto w-100">
-                    <p class="d-inline-block mb-0">¿Todavia no tienes una cuenta?</p> <a href="" class="text-light font-weight-bold text-decoration-none">Registrate</a>
-                </div>
-            </div>
-        </div>
-      </section>
+              </div>
+          </div>
+  
+          <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 mt-auto w-100">
+              <p class="d-inline-block mb-0">¿Todavia no tienes una cuenta?</p>
+              <a href="" class="text-light font-weight-bold text-decoration-none">Registrate</a>
+          </div>
+      </div>
+  </section>
   <!-- Footer -->
   <footer id="piedepag">
     <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>

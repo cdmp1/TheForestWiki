@@ -19,6 +19,6 @@ urlpatterns = [
     path('recuperarcontra/', views.recuperarcontra_view, name='recuperarcontra'),
     path('registrarse_wiki/', views.registrarse_view, name='registrarse'), #esto es solo para cargar la apgina
     path('registrarse/', views.registrar_usuario, name='registrarse_wiki'), #esto hace que funcione la interaccion con el form
-
+    path('iniciar_sesion_wiki/', views.iniciar_sesion_wiki, name='iniciar_sesion_wiki'),
 ]
 

@@ -3,8 +3,9 @@ from .forms import RegistroUsuarioForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages
-from .models import UsuariosRegistro  
+'''from .models import UsuariosRegistro  '''
 from django.contrib import messages
+from .iniciar_sesion_funcion import iniciar_sesion_wiki
 
 def animales_view(request):
     return render(request, 'Animales.html')
@@ -147,7 +148,38 @@ def menu_principal_view(request):
     }
     return render(request, 'Menu_principal_wiki.html', context)
 
+def registrar_usuario(request):
+    if request.method == 'POST':
+        form = RegistroUsuarioForm(request.POST)
+        if form.is_valid():
+            nombre_usuario = form.cleaned_data['nombre_usuario']
+            email = form.cleaned_data['email']
+            nombre_completo = form.cleaned_data['nombre']
+            contraseña = form.cleaned_data['contraseña']
 
+            try:
+                
+                user = User.objects.create_user(
+                    username=nombre_usuario,
+                    email=email,
+                    password=contraseña, 
+                    first_name=nombre_completo, 
+                )
+                messages.success(request, "Usuario registrado con éxito!")
+                return redirect('Menu_principal_wiki')
+
+            except Exception as e:
+                form.add_error(None, f"Ocurrió un error al crear la cuenta: {e}")
+                return render(request, 'registrarse_wiki.html', {'form': form})
+        else:
+            return render(request, 'registrarse_wiki.html', {'form': form})
+    else:
+        form = RegistroUsuarioForm()
+        return render(request, 'registrarse_wiki.html', {'form': form})
+
+
+
+''' ESTO ES LO QUE SE HIZO PARA BASE DE DATOS PERO COMO NO ES REQUISITO LO DEJO DESACTIVADO POR AHORA
 def registrar_usuario(request):
     if request.method == 'POST':
         form = RegistroUsuarioForm(request.POST)
@@ -176,4 +208,4 @@ def registrar_usuario(request):
             return render(request, 'registrarse_wiki.html', {'form': form})
     else:
         form = RegistroUsuarioForm()
-        return render(request, 'registrarse_wiki.html', {'form': form})
+        return render(request, 'registrarse_wiki.html', {'form': form})'''
