@@ -11,12 +11,14 @@ urlpatterns = [
     path('flora/', views.flora_view, name='flora'),
     path('forowiki/', views.forowiki_view, name='forowiki'),
     path('historia/', views.historia_view, name='historia'),
-    path('inicio_sesion/', views.inicio_sesion_view, name='inicio_sesion'),
+    path('inicio_sesion_wiki/', views.inicio_sesion_wiki, name='inicio_sesion_wiki'),
     path('logros/', views.logros_view, name='logros'),
     path('lugares/', views.lugares_view, name='lugares'),
     path('Menu_principal_wiki/', views.menu_principal_view, name='Menu_principal_wiki'),
-    path('micuenta/', views.micuenta_view, name='micuenta'),
+    path('micuenta/', views.micuenta_view, name='micuenta'), 
     path('recuperarcontra/', views.recuperarcontra_view, name='recuperarcontra'),
-    path('registrarse/', views.registrarse_view, name='registrarse'),
+    path('registrarse_wiki/', views.registrarse_view, name='registrarse'), #esto es solo para cargar la apgina
+    path('registrarse/', views.registrar_usuario, name='registrarse_wiki'), #esto hace que funcione la interaccion con el form
+
 ]
 

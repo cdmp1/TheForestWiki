@@ -1,4 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import RegistroUsuarioForm
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.contrib import messages
+from .models import UsuariosRegistro  
+from django.contrib import messages
 
 def animales_view(request):
     return render(request, 'Animales.html')
@@ -24,7 +30,7 @@ def forowiki_view(request):
 def historia_view(request):
     return render(request, 'Historia.html')
 
-def inicio_sesion_view(request):
+def inicio_sesion_wiki(request):
     return render(request, 'Inicio_sesion_wiki.html')
 
 def logros_view(request):
@@ -140,3 +146,34 @@ def menu_principal_view(request):
         'image_paths_historia': image_paths_historia,
     }
     return render(request, 'Menu_principal_wiki.html', context)
+
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        form = RegistroUsuarioForm(request.POST)
+        if form.is_valid():
+            nombre_usuario = form.cleaned_data['nombre_usuario']
+            email = form.cleaned_data['email']
+            nombre_completo = form.cleaned_data['nombre']
+            contraseña = form.cleaned_data['contraseña']
+
+            try:
+                # Crea un usuario en la tabla UsuariosRegistro
+                usuario = UsuariosRegistro(
+                    nombre_usuario=nombre_usuario,
+                    email=email,
+                    nombre=nombre_completo,
+                    contraseña=contraseña
+                )
+                usuario.save()
+
+                messages.success(request, "Usuario registrado con éxito!")
+                return redirect('Menu_principal_wiki')
+            except Exception as e:
+                form.add_error(None, f"Ocurrió un error al crear la cuenta: {e}")
+                return render(request, 'registrarse_wiki.html', {'form': form})
+        else:
+            return render(request, 'registrarse_wiki.html', {'form': form})
+    else:
+        form = RegistroUsuarioForm()
+        return render(request, 'registrarse_wiki.html', {'form': form})

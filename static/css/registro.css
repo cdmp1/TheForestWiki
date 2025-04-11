@@ -1,12 +1,13 @@
 :root {
-  --dark: #16191C;
+  --dark: #0e0e0f;
   --dark-x: #1E2126;
   --light: #ffffff;
   --rojo: #ffc400;
-  --fondo: #1414148c;
+  --fondo: #141414d5;
 }
 
 body {
+  background-color: #000000;
   font-family: 'Spartan', sans-serif;
   font-weight: 300;
   color: var(--light);
@@ -159,7 +160,7 @@ nav {
 }
 
 .bg-dark {
-  background-color: #16191C !important; 
+  background-color: #14191d !important; 
   color: white; 
 }
 
