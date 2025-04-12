@@ -73,7 +73,6 @@
           <div class="indicadores"></div>
         </div>
 
-                <!-- Carrusel HISTORIA-->
                 <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Historia</h4>
                 <div class="contenedor-principal d-flex justify-content-center mb-5"> 
                   <div style="max-width: 700px; width: 100%;">
@@ -104,10 +103,9 @@
             
               </div>
             </div>
-                    
-                <!-- Carrusel de Lugares -->
+
           <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Lugares</h4>
-          <div class="contenedor-principal d-flex justify-content-center mb-5"> <!-- Margin bottom -->
+          <div class="contenedor-principal d-flex justify-content-center mb-5"> 
 
             <div style="max-width: 700px; width: 100%;">
               <button role="button" id="flecha-izquierda" class="flecha-izquierda">
@@ -138,8 +136,6 @@
         </div>
       </div>
 
-      
-          <!-- Carrusel de Animales -->
           <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Animales</h4>
           <div class="contenedor-principal d-flex justify-content-center mb-5"> 
             <div style="max-width: 200px; width: 100%;">
@@ -167,11 +163,7 @@
               </div>
             </div>
           </div>
-      
-      
 
-
-        <!-- Carrusel de Enemigos -->
         <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Enemigos</h4>
         <div class="contenedor-principal d-flex justify-content-center mb-5"> 
           <div style="max-width: 200px; width: 100%;">
@@ -203,9 +195,6 @@
       </div>
     </div>
 
-
-
-        <!-- Carrusel de Construcciones -->
         <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Construcciones</h4>
         <div class="contenedor-principal d-flex justify-content-center mb-5"> 
           <div style="max-width: 200px; width: 100%;">
@@ -237,10 +226,6 @@
       </div>
     </div>
 
-
-    
-
-        <!-- Carrusel de Flora -->
         <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Flora</h4>
         <div class="contenedor-principal d-flex justify-content-center mb-5"> 
           <div style="max-width: 200px; width: 100%;">
@@ -272,9 +257,6 @@
       </div>
     </div>
 
-
-    
-        <!-- Carrusel Armas -->
         <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Armas</h4>
         <div class="contenedor-principal d-flex justify-content-center mb-5"> 
           <div style="max-width: 200px; width: 100%;">
@@ -306,9 +288,6 @@
       </div>
     </div>
 
-
-    
-        <!-- Carrusel Consumibles -->
         <h4 class="text-white mt-4 mb-5 text-center" style="font-family: 'Bebas Neue', sans-serif;">Consumibles</h4>
         <div class="contenedor-principal d-flex justify-content-center mb-5"> 
           <div style="max-width: 200px; width: 100%;">
@@ -348,7 +327,6 @@
 
   </main>
 
-    <!-- Footer -->
     <footer id="piedepag">
       <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>
       <p>Copyright 2022 Wiki <span style="color: #ffc400;">THE FOREST WIKI</span></p>
@@ -360,20 +338,17 @@
     var capital = document.getElementById("capital");
     var number = document.getElementById("number");
     var length = document.getElementById("length");
-    
-    // When the user clicks on the password field, show the message box
+
     myInput.onfocus = function() {
       document.getElementById("message").style.display = "block";
     }
-    
-    // When the user clicks outside of the password field, hide the message box
+
     myInput.onblur = function() {
       document.getElementById("message").style.display = "none";
     }
-    
-    // When the user starts to type something inside the password field
+
     myInput.onkeyup = function() {
-      // Validate lowercase letters
+
       var lowerCaseLetters = /[a-z]/g;
       if(myInput.value.match(lowerCaseLetters)) {  
         letter.classList.remove("invalid");
@@ -382,8 +357,7 @@
         letter.classList.remove("valid");
         letter.classList.add("invalid");
       }
-      
-      // Validate capital letters
+
       var upperCaseLetters = /[A-Z]/g;
       if(myInput.value.match(upperCaseLetters)) {  
         capital.classList.remove("invalid");
@@ -392,8 +366,7 @@
         capital.classList.remove("valid");
         capital.classList.add("invalid");
       }
-    
-      // Validate numbers
+
       var numbers = /[0-9]/g;
       if(myInput.value.match(numbers)) {  
         number.classList.remove("invalid");
@@ -402,8 +375,7 @@
         number.classList.remove("valid");
         number.classList.add("invalid");
       }
-      
-      // Validate length
+
       if(myInput.value.length >= 8) {
         length.classList.remove("invalid");
         length.classList.add("valid");

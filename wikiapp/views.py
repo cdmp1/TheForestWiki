@@ -49,6 +49,21 @@ def recuperarcontra_view(request):
 def registrarse_view(request):
     return render(request, 'Registrarse_wiki.html')
 
+def admin_view(request):
+    return render(request, 'administrador.html')
+
+def g_foro_view(request):
+    return render(request, 'g_foro.html')
+
+def g_secciones_view(request):
+    return render(request, 'g_secciones.html')
+
+def g_usuarios_view(request):
+    return render(request, 'g_usuarios.html')
+
+def g_web_view(request):
+    return render(request, 'g_web.html')
+
 
 from django.shortcuts import render
 

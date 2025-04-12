@@ -20,5 +20,9 @@ urlpatterns = [
     path('registrarse_wiki/', views.registrarse_view, name='registrarse'), #esto es solo para cargar la apgina
     path('registrarse/', views.registrar_usuario, name='registrarse_wiki'), #esto hace que funcione la interaccion con el form
     path('iniciar_sesion_wiki/', views.iniciar_sesion_wiki, name='iniciar_sesion_wiki'),
+    path('administrador/', views.admin_view, name='admin_wiki'),
+    path('g_foro/', views.g_foro_view, name='admin_foro'),
+    path('g_secciones/', views.g_secciones_view, name='admin_secciones'),
+    path('g_usuarios/', views.g_usuarios_view, name='admin_usuarios'),               
+    path('g_web/', views.g_web_view, name='admin_web'),
 ]
-
