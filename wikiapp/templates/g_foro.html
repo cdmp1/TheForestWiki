@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagenes/Icono/the-forest.icon.png" />
+    <title>Panel de administración — The Forest Wiki</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"rel="stylesheet">
+    <link rel=stylesheet href="foro.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background-color: #f4f4f4;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .card {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .ban-label {
+    font-size: 0.85rem;
+    color: #dc3545;
+    font-weight: bold;
+  }
+  footer#piedepag {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    background: #343a40;
+    color: #fff;
+  }
+  .comentario-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  .media-body p.nombre {
+    font-weight: 600;
+  }
+
+  .botones a {
+    margin-right: 10px;
+    text-decoration: none;
+  }
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="/Menu_principal_wiki">The Forest Wiki</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/admin">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_secciones">Secciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_web">Ajustes</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_foro">Foro</a></li>
+          <li class="nav-item"><a class="nav-link" href="/micuenta">Mi cuenta</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_usuarios">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Panel del administrador</h1>
+  <h3>Comentarios de usuarios</h3>
+  <div class="card mb-3">
+    <div class="card-body d-flex">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="comentario-img" alt="User">
+      <div class="media-body">
+        <p class="nombre">Vicente Echevarria <span class="text-muted">8:00 pm, Hoy</span></p>
+        <p>El juego está buenardo, lo malo es que las mecánicas de los enemigos están medias desbalanceadas según mi opinión, ya que con cualquier alarma puedes matar a todos los enemigos muy fácilmente.</p>
+        <div class="botones text-end">
+          <a href="#">Responder</a>
+          <a href="#">Editar</a>
+          <a href="#" class="text-danger">Borrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-body d-flex">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="comentario-img" alt="User">
+      <div class="media-body">
+        <p class="nombre">Kevin Oyaneder <span class="text-muted">8:00 pm, Hoy</span></p>
+        <p>
+          Yeah. Perdonen, Kamehameha. Después del tema del Tetris viene el Dragon Ball Rap. Quien no haya seguido esta serie es porque no tiene infancia. Big Bang Attack ataca desde el Planeta Namek. Vegeta, Son Goku, rivalidades Saiyan.
+        </p>
+        <div class="botones text-end">
+          <a href="#">Responder</a>
+          <a href="#">Editar</a>
+          <a href="#" class="text-danger">Borrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-body d-flex">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="comentario-img" alt="User">
+      <div class="media-body">
+        <p class="nombre">Alexis Jara <span class="text-muted">8:00 pm, Hoy</span></p>
+        <p>Odio ese juego, ¿alguien podría decirme qué es lo que le ven, por favor?????</p>
+        <div class="botones text-end">
+          <a href="#">Responder</a>
+          <a href="#">Editar</a>
+          <a href="#" class="text-danger">Borrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="my-5">
+  <h3>Gestión de usuarios</h3>
+
+  <div class="card mb-3">
+    <div class="card-body d-flex justify-content-between align-items-center">
+      <strong>Vicente Echevarria</strong>
+      <div class="d-flex gap-2">
+        <a href="#" class="btn btn-sm btn-warning">Banear</a>
+        <a href="#" class="btn btn-sm btn-info">Ver perfil</a>
+        <form action="#" method="POST" class="d-flex gap-1">
+          <input type="text" name="mensaje" placeholder="Mensaje privado" class="form-control form-control-sm" required>
+          <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body d-flex justify-content-between align-items-center">
+      <strong>Kevin Oyaneder</strong>
+      <div class="d-flex gap-2">
+        <a href="#" class="btn btn-sm btn-warning">Banear</a>
+        <a href="#" class="btn btn-sm btn-info">Ver perfil</a>
+        <form action="#" method="POST" class="d-flex gap-1">
+          <input type="text" name="mensaje" placeholder="Mensaje privado" class="form-control form-control-sm" required>
+          <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body d-flex justify-content-between align-items-center">
+      <strong>Alexis Jara</strong>
+      <div class="d-flex gap-2">
+        <a href="#" class="btn btn-sm btn-warning">Banear</a>
+        <a href="#" class="btn btn-sm btn-info">Ver perfil</a>
+        <form action="#" method="POST" class="d-flex gap-1">
+          <input type="text" name="mensaje" placeholder="Mensaje privado" class="form-control form-control-sm" required>
+          <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer id="piedepag">
+  <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>
+  <p>&copy; 2022 Wiki <span style="color: #ffc400;">THE FOREST WIKI</span></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

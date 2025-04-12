@@ -3,9 +3,31 @@ from .forms import RegistroUsuarioForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages
-'''from .models import UsuariosRegistro  '''
-from django.contrib import messages
 from .iniciar_sesion_funcion import iniciar_sesion_wiki
+from django.contrib.auth.decorators import user_passes_test
+
+def solo_admin(user):
+    return user.is_authenticated and user.is_staff
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def admin_view(request):
+    return render(request, 'administrador.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_foro_view(request):
+    return render(request, 'g_foro.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_secciones_view(request):
+    return render(request, 'g_secciones.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_usuarios_view(request):
+    return render(request, 'g_usuarios.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_web_view(request):
+    return render(request, 'g_web.html')
+
 
 def animales_view(request):
     return render(request, 'Animales.html')
@@ -63,6 +85,7 @@ def g_usuarios_view(request):
 
 def g_web_view(request):
     return render(request, 'g_web.html')
+
 
 
 from django.shortcuts import render

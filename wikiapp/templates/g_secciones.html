@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de secciones — The Forest Wiki</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> <!-- Usa tu kit o CDN gratuito abajo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .card {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer#piedepag {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background: #343a40;
+      color: #fff;
+    }
+
+    .seccion-icon {
+      width: 30px;
+      margin-right: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="/Menu_principal_wiki">The Forest Wiki</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/admin">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_secciones">Secciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_web">Ajustes</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_foro">Foro</a></li>
+          <li class="nav-item"><a class="nav-link" href="/micuenta">Mi cuenta</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_usuarios">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Gestión de secciones — The Forest Wiki</h1>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Agregar nueva sección</h5>
+      <form action="#" method="POST" class="d-flex gap-2">
+        <input type="text" name="nueva_seccion" placeholder="Nombre de la sección" class="form-control" required>
+        <button type="submit" class="btn btn-success">Agregar</button>
+      </form>
+    </div>
+  </div>
+  <h4>Secciones existentes</h4>
+  <div class="list-group">
+
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-paw"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Animales" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-crosshairs"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Armas" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-hammer"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Construcciones" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-apple-alt"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Consumibles" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-skull-crossbones"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Enemigos" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-leaf"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Flora" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-book"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Historia" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-trophy"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Logros" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+
+    <div class="list-group-item d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center flex-grow-1 gap-2">
+        <span class="seccion-icon"><i class="fas fa-map-marker-alt"></i></span>
+        <form action="#" method="POST" class="d-flex flex-grow-1 gap-2">
+          <input type="text" class="form-control" value="Lugares" name="nombre">
+          <button class="btn btn-primary btn-sm">Editar</button>
+        </form>
+      </div>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </div>
+
+  </div>
+</div>
+  <footer id="piedepag">
+    <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>
+    <p>&copy; 2022 Wiki <span style="color: #ffc400;">THE FOREST WIKI</span></p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
