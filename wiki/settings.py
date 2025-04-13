@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-import cx_Oracle
+import cx_Oracle 
 from pathlib import Path
 import os
 
@@ -78,12 +78,15 @@ WSGI_APPLICATION = 'wiki.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.oracle',
-        'NAME':'localhost:1521/xe', 
-        'USER': 'SYSTEM',
-        'PASSWORD': 'Oraclecloud889',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'pocxt95gwbrf53d1_medium',  # Tu nombre de servicio
+        'USER': 'BDFOREST',  # Tu nombre de usuario
+        'PASSWORD': 'Oraclecloud889',  # Tu contraseña
     }
 }
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

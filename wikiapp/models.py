@@ -1,5 +1,5 @@
 
-''' ESTO SE HIZO PARA LA CONEXION DE BASE DE DATOS , QUEDO DESACTIVADA
+
 from django.db import models
 
 #Modelo que es la base dde la tabla que usa django 
@@ -10,4 +10,4 @@ class UsuariosRegistro(models.Model):
     contraseña = models.CharField(max_length=12)
 
     def __str__(self):
-        return self.nombre_usuario '''
+        return self.nombre_usuario 

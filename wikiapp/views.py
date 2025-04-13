@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import RegistroUsuarioForm
-from django.contrib.auth.models import User
+'''from django.contrib.auth.models import User''' 
 from django.contrib.auth import login
 from django.contrib import messages
-'''from .models import UsuariosRegistro  '''
+from .models import UsuariosRegistro 
 from django.contrib import messages
 from .iniciar_sesion_funcion import iniciar_sesion_wiki
 
@@ -148,6 +148,9 @@ def menu_principal_view(request):
     }
     return render(request, 'Menu_principal_wiki.html', context)
 
+'''
+Esto es de la base de datos de user
+
 def registrar_usuario(request):
     if request.method == 'POST':
         form = RegistroUsuarioForm(request.POST)
@@ -175,11 +178,8 @@ def registrar_usuario(request):
             return render(request, 'registrarse_wiki.html', {'form': form})
     else:
         form = RegistroUsuarioForm()
-        return render(request, 'registrarse_wiki.html', {'form': form})
+        return render(request, 'registrarse_wiki.html', {'form': form})'''
 
-
-
-''' ESTO ES LO QUE SE HIZO PARA BASE DE DATOS PERO COMO NO ES REQUISITO LO DEJO DESACTIVADO POR AHORA
 def registrar_usuario(request):
     if request.method == 'POST':
         form = RegistroUsuarioForm(request.POST)
@@ -208,4 +208,4 @@ def registrar_usuario(request):
             return render(request, 'registrarse_wiki.html', {'form': form})
     else:
         form = RegistroUsuarioForm()
-        return render(request, 'registrarse_wiki.html', {'form': form})'''
+        return render(request, 'registrarse_wiki.html', {'form': form})
