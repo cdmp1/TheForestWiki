@@ -1,11 +1,35 @@
 from django.shortcuts import render, redirect
 from .forms import RegistroUsuarioForm
-'''from django.contrib.auth.models import User''' 
+from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages
 from .models import UsuariosRegistro 
 from django.contrib import messages
 from .iniciar_sesion_funcion import iniciar_sesion_wiki
+from django.contrib.auth.decorators import user_passes_test
+
+def solo_admin(user):
+    return user.is_authenticated and user.is_staff
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def admin_view(request):
+    return render(request, 'administrador.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_foro_view(request):
+    return render(request, 'g_foro.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_secciones_view(request):
+    return render(request, 'g_secciones.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_usuarios_view(request):
+    return render(request, 'g_usuarios.html')
+
+@user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
+def g_web_view(request):
+    return render(request, 'g_web.html')
+
 
 def animales_view(request):
     return render(request, 'Animales.html')
@@ -48,6 +72,22 @@ def recuperarcontra_view(request):
 
 def registrarse_view(request):
     return render(request, 'Registrarse_wiki.html')
+
+def admin_view(request):
+    return render(request, 'administrador.html')
+
+def g_foro_view(request):
+    return render(request, 'g_foro.html')
+
+def g_secciones_view(request):
+    return render(request, 'g_secciones.html')
+
+def g_usuarios_view(request):
+    return render(request, 'g_usuarios.html')
+
+def g_web_view(request):
+    return render(request, 'g_web.html')
+
 
 
 from django.shortcuts import render
@@ -148,37 +188,6 @@ def menu_principal_view(request):
     }
     return render(request, 'Menu_principal_wiki.html', context)
 
-'''
-Esto es de la base de datos de user
-
-def registrar_usuario(request):
-    if request.method == 'POST':
-        form = RegistroUsuarioForm(request.POST)
-        if form.is_valid():
-            nombre_usuario = form.cleaned_data['nombre_usuario']
-            email = form.cleaned_data['email']
-            nombre_completo = form.cleaned_data['nombre']
-            contraseña = form.cleaned_data['contraseña']
-
-            try:
-                
-                user = User.objects.create_user(
-                    username=nombre_usuario,
-                    email=email,
-                    password=contraseña, 
-                    first_name=nombre_completo, 
-                )
-                messages.success(request, "Usuario registrado con éxito!")
-                return redirect('Menu_principal_wiki')
-
-            except Exception as e:
-                form.add_error(None, f"Ocurrió un error al crear la cuenta: {e}")
-                return render(request, 'registrarse_wiki.html', {'form': form})
-        else:
-            return render(request, 'registrarse_wiki.html', {'form': form})
-    else:
-        form = RegistroUsuarioForm()
-        return render(request, 'registrarse_wiki.html', {'form': form})'''
 
 def registrar_usuario(request):
     if request.method == 'POST':

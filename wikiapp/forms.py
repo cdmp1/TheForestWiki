@@ -18,8 +18,6 @@ class PasswordSymbolValidator:
     def __call__(self, value):
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', value):
             raise forms.ValidationError("La contraseña debe contener al menos un caracter especial.")
-
-#validaciones del los input de los user en el formulario
 class RegistroUsuarioForm(forms.Form):
         nombre_usuario = forms.CharField(
         max_length=30,

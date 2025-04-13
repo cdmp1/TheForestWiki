@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de administrador — The Forest Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .dashboard-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: #0d6efd;
+    }
+
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .navbar-brand {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 24px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/Menu_principal_wiki">The Forest Wiki</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="/admin">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/g_secciones">Secciones</a></li>
+        <li class="nav-item"><a class="nav-link" href="/g_web">Ajustes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/foro">Foro</a></li>
+        <li class="nav-item"><a class="nav-link" href="/micuenta">Mi Cuenta</a></li>
+        <li class="nav-item"><a class="nav-link" href="/g_usuarios">Usuarios</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="#">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="dashboard-title text-center">Panel de administración</h1>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-body">
+          <div class="card-icon mb-2"><i class="fas fa-users"></i></div>
+          <h5 class="card-title">Gestión de Usuarios</h5>
+          <p class="card-text">Ver, editar o banear usuarios registrados.</p>
+          <a href="/g_usuarios" class="btn btn-primary">Administrar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-body">
+          <div class="card-icon mb-2"><i class="fas fa-th-large"></i></div>
+          <h5 class="card-title">Contenido del Sitio</h5>
+          <p class="card-text">Edita secciones como animales, armas, enemigos y más.</p>
+          <a href="/g_secciones" class="btn btn-primary">Ir a Secciones</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-body">
+          <div class="card-icon mb-2"><i class="fas fa-comments"></i></div>
+          <h5 class="card-title">Foro</h5>
+          <p class="card-text">Revisa, modera y elimina comentarios del foro.</p>
+          <a href="/g_foro" class="btn btn-primary">Gestionar foro</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-body">
+          <div class="card-icon mb-2"><i class="fas fa-cogs"></i></div>
+          <h5 class="card-title">Ajustes de la web</h5>
+          <p class="card-text">Modifica banners, temas, colores y más.</p>
+          <a href="/g_web" class="btn btn-primary">Configurar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-body">
+          <div class="card-icon mb-2"><i class="fas fa-newspaper"></i></div>
+          <h5 class="card-title">Noticias</h5>
+          <p class="card-text">Publica actualizaciones o eventos importantes del juego.</p>
+          <a href="/g_web#noticias" class="btn btn-primary">Publicar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-body">
+          <div class="card-icon mb-2"><i class="fas fa-chart-bar"></i></div>
+          <h5 class="card-title">Estadísticas</h5>
+          <p class="card-text">Visualiza datos generales del sitio (en construcción).</p>
+          <a href="#" class="btn btn-secondary disabled">Próximamente</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="piedepag">
+    <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>
+    <p>Copyright 2022 Wiki <span style="color: #ffc400;">THE FOREST WIKI</span></p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

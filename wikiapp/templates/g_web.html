@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de la Web - The Forest Wiki</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .card {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer#piedepag {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background: #343a40;
+      color: #fff;
+    }
+
+    .img-thumbnail {
+      max-width: 150px;
+    }
+
+    .navbar-brand {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 24px;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="/Menu_principal_wiki">The Forest Wiki</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/admin">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_secciones">Secciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_web">Ajustes</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_foro">Foro</a></li>
+          <li class="nav-item"><a class="nav-link" href="/micuenta">Mi cuenta</a></li>
+          <li class="nav-item"><a class="nav-link" href="/g_usuarios">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="mb-4 text-center">Gestión de la web</h1>
+    <h4>Gestión de imágenes de portada</h4>
+    <div class="card mb-4">
+      <div class="card-body">
+        <form action="/admin/upload-banner" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="form-label">Subir imagen de banner</label>
+            <input type="file" class="form-control" name="banner_image" accept="image/*" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Subir banner</button>
+        </form>
+
+        <hr>
+        <h6>Imagenes actuales</h6>
+        <div class="d-flex gap-3">
+          <div class="img-thumbnail">
+            <img src="/static/img/banner1.jpg" class="img-fluid" alt="Banner 1">
+            <a href="/admin/eliminar-banner/1" class="btn btn-danger btn-sm mt-1">Eliminar</a>
+          </div>
+          <div class="img-thumbnail">
+            <img src="/static/img/banner2.jpg" class="img-fluid" alt="Banner 2">
+            <a href="/admin/eliminar-banner/2" class="btn btn-danger btn-sm mt-1">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4>Configuración avanzada</h4>
+    <div class="card mb-4">
+      <div class="card-body">
+        <form action="/admin/ajustes-tema" method="POST">
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="modo_oscuro" name="modo_oscuro">
+            <label class="form-check-label" for="modo_oscuro">Modo oscuro</label>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="color_primario">Color primario</label>
+            <input type="color" class="form-control form-control-color" id="color_primario" name="color_primario" value="#007bff">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+
+    <h4>Noticias y actualizaciones</h4>
+    <div class="card mb-5">
+      <div class="card-body">
+        <form action="/admin/noticias" method="POST">
+          <div class="mb-3">
+            <label class="form-label">Título de la noticia</label>
+            <input type="text" class="form-control" name="titulo_noticia" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Contenido</label>
+            <textarea class="form-control" name="contenido_noticia" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Agregar noticia</button>
+        </form>
+
+        <hr>
+        <h6>Noticias recientes</h6>
+        <div class="list-group">
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <span><strong>Nuevo parche v1.12</strong> — 12 Abril</span>
+            <div>
+              <a href="/admin/noticia/editar/1" class="btn btn-warning btn-sm">Editar</a>
+              <a href="/admin/noticia/eliminar/1" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+          </div>
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <span><strong>Evento de primavera</strong> — 8 Abril</span>
+            <div>
+              <a href="/admin/noticia/editar/2" class="btn btn-warning btn-sm">Editar</a>
+              <a href="/admin/noticia/eliminar/2" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer id="piedepag">
+    <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>
+    <p>Copyright 2022 Wiki <span style="color: #ffc400;">THE FOREST WIKI</span></p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
