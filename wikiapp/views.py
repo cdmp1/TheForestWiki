@@ -6,6 +6,10 @@ from .forms import RegistroUsuarioForm
 from .models import UsuariosRegistro
 from .iniciar_sesion_funcion import iniciar_sesion_wiki
 
+from django.contrib.auth.decorators import login_required
+from .forms import EditarPerfilForm
+from django.contrib import messages
+
 
 # Decorador para vistas de administrador
 def solo_admin(user):
@@ -160,3 +164,25 @@ def registrar_usuario(request):
 def cerrar_sesion(request):
     logout(request)
     return redirect('inicio_sesion_wiki')
+
+
+# Editar perfil
+@login_required
+def editar_perfil(request):
+    # Obtener el perfil del usuario autenticado
+    try:
+        usuario = UsuariosRegistro.objects.get(nombre_usuario=request.user.username)
+    except UsuariosRegistro.DoesNotExist:
+        messages.error(request, "No se encontró el usuario.")
+        return redirect('menu_principal_view')  
+
+    if request.method == 'POST':
+        form = EditarPerfilForm(request.POST, instance=usuario)  # Rellenar con los datos actuales del usuario
+        if form.is_valid():
+            form.save()  # Guardar los cambios
+            messages.success(request, 'Tu perfil ha sido actualizado correctamente.')
+            return redirect('micuenta_view')  # Redirigir a mi cuenta
+    else:
+        form = EditarPerfilForm(instance=usuario)  # Rellenar con los datos actuales del usuario
+
+    return render(request, 'editar_perfil.html', {'form': form})

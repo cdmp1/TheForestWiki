@@ -18,6 +18,7 @@ urlpatterns = [
     path('lugares/', views.lugares_view, name='lugares'),
     path('micuenta/', views.micuenta_view, name='micuenta'), 
     path('recuperarcontra/', views.recuperarcontra_view, name='recuperarcontra'),
+    path('editar_perfil/', views.editar_perfil, name='editar_perfil'),
 
     # Autenticación
     path('inicio_sesion_wiki/', views.inicio_sesion_wiki, name='inicio_sesion_wiki'),

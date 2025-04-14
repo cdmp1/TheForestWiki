@@ -17,7 +17,7 @@
 
 <body id="fondo1" style="background-color: #1E2126; color: white;">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-20px">
     <a class="navbar-brand" href="/Menu_principal_wiki" id="fuente">The Forest Wiki</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,9 +88,9 @@
             </svg> <i class="bi bi-key-fill"></i> Contraseña: ngolito777</li>
           <div class="w-33">
             <div class="center">
-              <button class="btn btn-dark">
-                Editar
-              </button>
+              <button class="btn btn-dark" a href="{% url 'editar_perfil' %}">
+                Editar mi perfil
+              </a></button>
             </div>
           </div>
         </ul>
