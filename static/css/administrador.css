@@ -1,0 +1,32 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.dashboard-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+}
+
+footer {
+    background: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.navbar-brand {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+}
+
+.nav-link {
+    font-weight: 600;
+}
