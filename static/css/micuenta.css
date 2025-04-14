@@ -57,13 +57,15 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .seccion-perfil-usuario .perfil-usuario-header {
     width: 100%;
     display: flex;
     justify-content: center;
-    background-image: url(../../static/img/img_wiki/Fondo3.jpg);
+    background-image: url("{% static 'img/img_wiki/Fondo3.jpg' %}");
     margin-bottom: 1.25rem;
 }
 
@@ -72,7 +74,6 @@ body {
     position: relative;
     width: 90%;
     height: 17rem;
-    
     border-radius: 0 0 20px 20px;
 }
 
