@@ -11,7 +11,7 @@ urlpatterns = [
     path('flora/', views.flora_view, name='flora'),
     path('forowiki/', views.forowiki_view, name='forowiki'),
     path('historia/', views.historia_view, name='historia'),
-    path('inicio_sesion_wiki/', views.inicio_sesion_wiki, name='inicio_sesion_wiki'),
+    path('inicio_sesion/', views.iniciar_sesion_wiki, name='inicio_sesion'),
     path('logros/', views.logros_view, name='logros'),
     path('lugares/', views.lugares_view, name='lugares'),
     path('Menu_principal_wiki/', views.menu_principal_view, name='Menu_principal_wiki'),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('g_secciones/', views.g_secciones_view, name='admin_secciones'),
     path('g_usuarios/', views.g_usuarios_view, name='admin_usuarios'),               
     path('g_web/', views.g_web_view, name='admin_web'),
+    
 ]

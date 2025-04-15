@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django import forms
+from .forms import InicioSesionForm 
 
 def iniciar_sesion_wiki(request):
     if request.method == 'POST':

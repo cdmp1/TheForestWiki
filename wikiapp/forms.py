@@ -18,6 +18,8 @@ class PasswordSymbolValidator:
     def __call__(self, value):
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', value):
             raise forms.ValidationError("La contraseña debe contener al menos un caracter especial.")
+
+
 class RegistroUsuarioForm(forms.Form):
         nombre_usuario = forms.CharField(
         max_length=30,
@@ -74,5 +76,20 @@ def clean(self):
         return cleaned_data
 
 
+#esto es del inicio de sesion
 
+
+from django.contrib.auth.forms import AuthenticationForm
+
+class InicioSesionForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(InicioSesionForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Ingrese su nombre de usuario'
+        })
+        self.fields['password'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Ingrese su contraseña'
+        })
 
