@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib import messages
 from .forms import RegistroUsuarioForm
 from django.contrib.auth import login
 from django.contrib import messages
@@ -11,6 +14,9 @@ from django.contrib.auth.forms import AuthenticationForm
 
 def solo_admin(user):
     return user.is_authenticated and user.is_staff
+
+
+# Vistas protegidas por rol admin
 @user_passes_test(solo_admin, login_url='/inicio_sesion_wiki/')
 def admin_view(request):
     return render(request, 'administrador.html')
@@ -31,6 +37,13 @@ def g_usuarios_view(request):
 def g_web_view(request):
     return render(request, 'g_web.html')
 
+
+# Vistas públicas generales
+def inicio_sesion_wiki(request):
+    return render(request, 'Inicio_sesion_wiki.html')
+
+def registrarse_view(request):
+    return render(request, 'Registrarse_wiki.html')
 
 def animales_view(request):
     return render(request, 'Animales.html')
@@ -56,9 +69,6 @@ def forowiki_view(request):
 def historia_view(request):
     return render(request, 'Historia.html')
 
-def inicio_sesion_wiki(request):
-    return render(request, 'Inicio_sesion_wiki.html')
-
 def logros_view(request):
     return render(request, 'Logros.html')
 
@@ -71,125 +81,57 @@ def micuenta_view(request):
 def recuperarcontra_view(request):
     return render(request, 'Recuperarcontra.html')
 
-def registrarse_view(request):
-    return render(request, 'Registrarse_wiki.html')
 
-def admin_view(request):
-    return render(request, 'administrador.html')
-
-def g_foro_view(request):
-    return render(request, 'g_foro.html')
-
-def g_secciones_view(request):
-    return render(request, 'g_secciones.html')
-
-def g_usuarios_view(request):
-    return render(request, 'g_usuarios.html')
-
-def g_web_view(request):
-    return render(request, 'g_web.html')
-
-
-
-from django.shortcuts import render
-
+# Vista principal con imágenes
 def menu_principal_view(request):
-    image_paths_animales = [
-        'img/imagenes/Animales/1.png',
-        'img/imagenes/Animales/2.png',
-        'img/imagenes/Animales/3.png',
-        'img/imagenes/Animales/4.png',
-        'img/imagenes/Animales/5.png',
-        'img/imagenes/Animales/6.png',
-        'img/imagenes/Animales/7.png',
-        'img/imagenes/Animales/8.png',
-        'img/imagenes/Animales/9.png',
-        'img/imagenes/Animales/10.png',
-        'img/imagenes/Animales/11.png',
-        'img/imagenes/Animales/12.png',
-        'img/imagenes/Animales/13.png',
-    ]
-
-    image_paths_lugares = [
-        'img/imagenes/Historia/h1.jpg',
-        'img/imagenes/Historia/h2.jpg',
-        'img/imagenes/Historia/h4.jpg',
-
-    ]
-    image_paths_enemigos = [
-        'img/imagenes/Enemigos/Armsy.webp',
-        'img/imagenes/Enemigos/BabyMutant.webp',
-        'img/imagenes/Enemigos/Cowman.webp',
-        'img/imagenes/Enemigos/DynamiteCannibal.webp',
-        'img/imagenes/Enemigos/Girl.webp',
-        'img/imagenes/Enemigos/Worm.webp',
-
-    ]
-    image_paths_construccion = [
-        'img/imagenes/Construcciones/AlpineTreeHouse.webp',
-        'img/imagenes/Construcciones/AnimalTrap.webp',
-        'img/imagenes/Construcciones/BasicFire.webp',
-        'img/imagenes/Construcciones/FirePit.webp',
-        'img/imagenes/Construcciones/Gazebo.webp',
-        'img/imagenes/Construcciones/RabbitCage.webp',
-
-    ]
-    image_paths_flora = [
-        'img/imagenes/Flora/f1.png',
-        'img/imagenes/Flora/f2.png',
-        'img/imagenes/Flora/f3.png',
-        'img/imagenes/Flora/f4.png',
-        'img/imagenes/Flora/f5.png',
-        'img/imagenes/Flora/f6.png',
-        'img/imagenes/Flora/f7.png',
-        'img/imagenes/Flora/f8.png',
-        'img/imagenes/Flora/f9.png',
-
-    ]
-    image_paths_armas= [
-        'img/imagenes/Armas/Arm.webp',
-        'img/imagenes/Armas/Arrow.webp',
-        'img/imagenes/Armas/Bomb.webp',
-        'img/imagenes/Armas/Bone.webp',
-        'img/imagenes/Armas/Club.webp',
-        'img/imagenes/Armas/Chainsaw.webp',
-        'img/imagenes/Armas/Crossbow.webp',
-        'img/imagenes/Armas/Dynamite.webp',
-        'img/imagenes/Armas/FireArrow.webp',
-
-    ]
-    image_paths_consumibles= [
-        'img/imagenes/Consumibles/Aloe.webp',
-        'img/imagenes/Consumibles/BlackBerries.webp',
-        'img/imagenes/Consumibles/Bloodied.webp',
-        'img/imagenes/Consumibles/Booze.webp',
-        'img/imagenes/Consumibles/FishEdible.webp',
-        'img/imagenes/Consumibles/IconMeatBurnt.webp',
-        'img/imagenes/Consumibles/Meat.webp',
-        'img/imagenes/Consumibles/RabbitMeat.webp',
-
-    ]
-
-    image_paths_historia= [
-        'img/imagenes/Fondos/Fondo4.jpg',
-        'img/imagenes/Fondos/Fondo5.jpg',
-
-    ]
-
-
     context = {
-        'image_paths_animales': image_paths_animales,
-        'image_paths_lugares': image_paths_lugares,
-        'image_paths_enemigos': image_paths_enemigos,
-        'image_paths_construccion': image_paths_construccion,
-        'image_paths_flora': image_paths_flora,
-        'image_paths_armas': image_paths_armas,
-        'image_paths_consumibles': image_paths_consumibles,
-        'image_paths_historia': image_paths_historia,
+        'image_paths_animales': [
+            'img/imagenes/Animales/1.png', 'img/imagenes/Animales/2.png',
+            'img/imagenes/Animales/3.png', 'img/imagenes/Animales/4.png',
+            'img/imagenes/Animales/5.png', 'img/imagenes/Animales/6.png',
+            'img/imagenes/Animales/7.png', 'img/imagenes/Animales/8.png',
+            'img/imagenes/Animales/9.png', 'img/imagenes/Animales/10.png',
+            'img/imagenes/Animales/11.png', 'img/imagenes/Animales/12.png',
+            'img/imagenes/Animales/13.png',
+        ],
+        'image_paths_lugares': [
+            'img/imagenes/Historia/h1.jpg', 'img/imagenes/Historia/h2.jpg',
+            'img/imagenes/Historia/h4.jpg',
+        ],
+        'image_paths_enemigos': [
+            'img/imagenes/Enemigos/Armsy.webp', 'img/imagenes/Enemigos/BabyMutant.webp',
+            'img/imagenes/Enemigos/Cowman.webp', 'img/imagenes/Enemigos/DynamiteCannibal.webp',
+            'img/imagenes/Enemigos/Girl.webp', 'img/imagenes/Enemigos/Worm.webp',
+        ],
+        'image_paths_construccion': [
+            'img/imagenes/Construcciones/AlpineTreeHouse.webp', 'img/imagenes/Construcciones/AnimalTrap.webp',
+            'img/imagenes/Construcciones/BasicFire.webp', 'img/imagenes/Construcciones/FirePit.webp',
+            'img/imagenes/Construcciones/Gazebo.webp', 'img/imagenes/Construcciones/RabbitCage.webp',
+        ],
+        'image_paths_flora': [
+            'img/imagenes/Flora/f1.png', 'img/imagenes/Flora/f2.png', 'img/imagenes/Flora/f3.png',
+            'img/imagenes/Flora/f4.png', 'img/imagenes/Flora/f5.png', 'img/imagenes/Flora/f6.png',
+            'img/imagenes/Flora/f7.png', 'img/imagenes/Flora/f8.png', 'img/imagenes/Flora/f9.png',
+        ],
+        'image_paths_armas': [
+            'img/imagenes/Armas/Arm.webp', 'img/imagenes/Armas/Arrow.webp', 'img/imagenes/Armas/Bomb.webp',
+            'img/imagenes/Armas/Bone.webp', 'img/imagenes/Armas/Club.webp', 'img/imagenes/Armas/Chainsaw.webp',
+            'img/imagenes/Armas/Crossbow.webp', 'img/imagenes/Armas/Dynamite.webp', 'img/imagenes/Armas/FireArrow.webp',
+        ],
+        'image_paths_consumibles': [
+            'img/imagenes/Consumibles/Aloe.webp', 'img/imagenes/Consumibles/BlackBerries.webp',
+            'img/imagenes/Consumibles/Bloodied.webp', 'img/imagenes/Consumibles/Booze.webp',
+            'img/imagenes/Consumibles/FishEdible.webp', 'img/imagenes/Consumibles/IconMeatBurnt.webp',
+            'img/imagenes/Consumibles/Meat.webp', 'img/imagenes/Consumibles/RabbitMeat.webp',
+        ],
+        'image_paths_historia': [
+            'img/imagenes/Fondos/Fondo4.jpg', 'img/imagenes/Fondos/Fondo5.jpg',
+        ],
     }
     return render(request, 'Menu_principal_wiki.html', context)
 
 
+# Registro de usuario
 def registrar_usuario(request):
     if request.method == 'POST':
         form = RegistroUsuarioForm(request.POST)
@@ -200,7 +142,6 @@ def registrar_usuario(request):
             contraseña = form.cleaned_data['contraseña']
 
             try:
-                # Crea un usuario en la tabla UsuariosRegistro
                 usuario = UsuariosRegistro(
                     nombre_usuario=nombre_usuario,
                     email=email,
@@ -208,33 +149,40 @@ def registrar_usuario(request):
                     contraseña=contraseña
                 )
                 usuario.save()
-
                 messages.success(request, "Usuario registrado con éxito!")
                 return redirect('Menu_principal_wiki')
             except Exception as e:
                 form.add_error(None, f"Ocurrió un error al crear la cuenta: {e}")
-                return render(request, 'registrarse_wiki.html', {'form': form})
-        else:
-            return render(request, 'registrarse_wiki.html', {'form': form})
+        # Si no es válido o hubo error
+        return render(request, 'Registrarse_wiki.html', {'form': form})
     else:
         form = RegistroUsuarioForm()
-        return render(request, 'registrarse_wiki.html', {'form': form})
-    
+        return render(request, 'Registrarse_wiki.html', {'form': form})
 
 
-    # LA FUNCIÓN DE VISTA
-def iniciar_sesion_wiki(request):
+# Cerrar sesión
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('inicio_sesion_wiki')
+
+
+# Editar perfil
+@login_required
+def editar_perfil(request):
+    # Obtener el perfil del usuario autenticado
+    try:
+        usuario = UsuariosRegistro.objects.get(nombre_usuario=request.user.username)
+    except UsuariosRegistro.DoesNotExist:
+        messages.error(request, "No se encontró el usuario.")
+        return redirect('menu_principal_view')  
+
     if request.method == 'POST':
-        form = InicioSesionForm(request, data=request.POST)
+        form = EditarPerfilForm(request.POST, instance=usuario)  # Rellenar con los datos actuales del usuario
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('Menu_principal_wiki')
-            else:
-                form.add_error(None, "Nombre de usuario o contraseña incorrectos.")
+            form.save()  # Guardar los cambios
+            messages.success(request, 'Tu perfil ha sido actualizado correctamente.')
+            return redirect('micuenta_view')  # Redirigir a mi cuenta
     else:
-        form = InicioSesionForm()
-    return render(request, 'Inicio_sesion_wiki.html', {'form': form})
+        form = EditarPerfilForm(instance=usuario)  # Rellenar con los datos actuales del usuario
+
+    return render(request, 'editar_perfil.html', {'form': form})
