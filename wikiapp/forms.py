@@ -35,9 +35,7 @@ class SoloLetrasEspaciosValidator:
 class PasswordSymbolValidator:
     def __call__(self, value):
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', value):
-            raise forms.ValidationError("La contraseña debe contener al menos un carácter especial.")
-
-# Formulario de registro de usuario
+            raise forms.ValidationError("La contraseña debe contener al menos un caracter especial.")
 
 
 class RegistroUsuarioForm(forms.Form):
@@ -92,5 +90,55 @@ class RegistroUsuarioForm(forms.Form):
         return cleaned_data
 
 
+#esto es del inicio de sesion
 
 
+from django.contrib.auth.forms import AuthenticationForm
+
+class InicioSesionForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(InicioSesionForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Ingrese su nombre de usuario'
+        })
+        self.fields['password'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Ingrese su contraseña'
+        })# Formulario para que el usuario edite su perfil
+class EditarPerfilForm(forms.ModelForm):
+    contraseña = forms.CharField(
+        widget=forms.PasswordInput(render_value=True),
+        required=False, 
+        label='Contraseña nueva (opcional)'
+    )
+
+    class Meta:
+        model = UsuariosRegistro
+        fields = ['nombre_usuario', 'nombre', 'email', 'contraseña']
+        widgets = {
+            'contraseña': forms.PasswordInput(render_value=True),
+        }
+
+    # Validación para la contraseña nueva
+    def clean_contraseña(self):
+        contraseña = self.cleaned_data.get('contraseña')
+        if contraseña and len(contraseña) < 8:
+            raise forms.ValidationError("La contraseña debe tener al menos 8 caracteres.")
+        return contraseña
+
+    # Validación para que no se repita  el email
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if email:
+            user = self.instance.user  # El usuario actual que está editando su perfil
+            email_no_repetido_validator(email, user)
+        return email
+
+    # Validación para que no se repita el nombre de usuario
+    def clean_nombre_usuario(self):
+        nombre_usuario = self.cleaned_data.get('nombre_usuario')
+        if nombre_usuario:
+            user = self.instance.user
+            username_no_repetido_validator(nombre_usuario, user)
+        return nombre_usuario

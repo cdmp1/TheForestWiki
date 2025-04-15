@@ -11,6 +11,7 @@ from .iniciar_sesion_funcion import iniciar_sesion_wiki
 from django.contrib.auth.decorators import user_passes_test
 from .forms import InicioSesionForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 def solo_admin(user):
     return user.is_authenticated and user.is_staff
